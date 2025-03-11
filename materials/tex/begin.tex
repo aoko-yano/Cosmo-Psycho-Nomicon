@@ -1,0 +1,71 @@
+\documentclass[ % ドキュメントクラス
+  9pt,
+  lualatex,%upLaTeXを使う
+  a5paper,%A5サイズにする
+  papersize%紙のサイズがデフォルトと違う場合、PDFにうまく伝える
+]{ltjsbook}
+
+% pdf
+\usepackage {pdfpages}
+
+%% フォント関連
+\usepackage[T1]{fontenc} % フォントでT1を使うこと
+\usepackage{textcomp} % フォントでTS1を使うこと
+\usepackage[utf8]{inputenc} % ファイルがUTF8であること
+\usepackage{newpxtext,newpxmath} % ローマンと数式の字体をPalatinoに基づいた新PXフォントで
+\usepackage{zi4}%等幅フォントをInconsolataで
+
+%% タイトル用フォント
+\usepackage{fontspec}
+\newfontfamily\magicfont{Almendra SC}
+
+% 斜線フォント
+\usepackage {cancel}
+
+%% 囲み枠
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable} % ページをまたいで分割できるように
+\tcbuselibrary{skins} % さまざまな skin を準備
+\tcbuselibrary{theorems} % 定理環境
+
+% 枠の定義
+\newtcolorbox{summary}{
+sharp corners, % 角を丸くしない
+boxrule=0pt, % ボックスの罫線なし
+colback=green!20!white, % ボックスの背景色
+}
+
+\newtcolorbox{note}[1]{
+breakable, % ページをまたいでボックスを分割
+before skip=20pt plus 2pt minus 2pt, % ボックスの前の空き
+after skip=20pt plus 2pt minus 2pt, % ボックスの後の空き
+boxrule=0.4pt, % ボックスの罫線の太さ
+colframe=black!95, % フレームの色
+colback=white!95, % ボックスの背景色
+fonttitle=\gtfamily\bfseries, % タイトルのフォント
+title=#1 % タイトルのテキスト
+}
+
+% エピグラフ
+\usepackage{epigraph}
+\setlength{\epigraphwidth}{.6\textwidth}
+
+% 註釈（本文中）
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% 参考文献（末尾）
+\usepackage{biblatex} % 参考文献管理用パッケージ
+\addbibresource{references.bib}
+
+%% 索引
+\usepackage{makeidx}
+\makeindex
+
+% URL
+\usepackage{hyperref}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{hidelinks}
+
+\begin{document}

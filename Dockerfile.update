@@ -1,0 +1,9 @@
+FROM pandoc/latex:latest
+
+WORKDIR /app
+
+RUN apk add --no-cache git bash grep
+
+ENTRYPOINT ["/bin/bash", "-c"]
+
+CMD ["md/update.sh"]
