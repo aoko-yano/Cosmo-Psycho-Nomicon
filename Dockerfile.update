@@ -4,6 +4,10 @@ WORKDIR /app
 
 RUN apk add --no-cache git bash grep
 
+RUN git config --global core.quotepath false
+ENV LANG=ja_JP.UTF-8
+ENV LC_ALL=ja_JP.UTF-8
+
 ENTRYPOINT ["/bin/bash", "-c"]
 
-CMD ["md/update.sh"]
+CMD ["materials/md/update.sh"]

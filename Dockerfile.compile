@@ -2,4 +2,4 @@ FROM texlive/texlive:latest
 
 WORKDIR /app
 
-CMD ["bash", "tex/compile.sh"]
+CMD ["bash", "materials/tex/compile.sh"]
