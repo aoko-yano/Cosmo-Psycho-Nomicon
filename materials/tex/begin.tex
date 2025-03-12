@@ -13,11 +13,17 @@
 \usepackage{luatexja-fontspec} % 日本語フォントを扱う
 \usepackage{newpxtext,newpxmath} % ローマンと数式の字体をPalatinoに基づいた新PXフォントで
 \usepackage{zi4} %等幅フォントをInconsolataで
+\usepackage{contour} % 縁取り用
+\contourlength{0.5pt} % 縁の太さを設定
 
 %% タイトル用フォント
 \usepackage{fontspec}
 \newfontfamily\magicfont{Almendra SC}
 \newjfontfamily\jatitle{IPAexMincho}
+
+%% 背景画像
+\usepackage{graphicx}
+\usepackage{tikz}
 
 % 斜線フォント
 \usepackage {cancel}
