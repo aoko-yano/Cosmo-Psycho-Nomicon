@@ -1,6 +1,6 @@
 \documentclass[ % ドキュメントクラス
   9pt,
-  lualatex,%upLaTeXを使う
+  lualatex,%luaLaTeXを使う
   a5paper,%A5サイズにする
   papersize%紙のサイズがデフォルトと違う場合、PDFにうまく伝える
 ]{ltjsbook}
@@ -14,10 +14,18 @@
 \usepackage{newpxtext,newpxmath} % ローマンと数式の字体をPalatinoに基づいた新PXフォントで
 \usepackage{zi4} %等幅フォントをInconsolataで
 \usepackage{contour} % 縁取り用
-\contourlength{0.5pt} % 縁の太さを設定
+\contourlength{0.7pt} % 縁の太さを設定
+\usepackage{fontspec}
+
+%% 各部表題用フォント
+\usepackage{titlesec}
+\titleformat{\part}
+  {\fontsize{24pt}{30pt}\selectfont\filcenter} % 30pt の明朝体（中央寄せ）
+  {\thepart} % 「第1部」などの番号部分
+  {1em} % 番号とタイトルの間隔
+  {}
 
 %% タイトル用フォント
-\usepackage{fontspec}
 \newfontfamily\magicfont{Almendra SC}
 \newjfontfamily\jatitle{IPAexMincho}
 
