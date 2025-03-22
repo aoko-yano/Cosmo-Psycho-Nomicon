@@ -1,8 +1,8 @@
 \documentclass[ % ドキュメントクラス
   9pt,
-  lualatex,%luaLaTeXを使う
-  a5paper,%A5サイズにする
-  papersize%紙のサイズがデフォルトと違う場合、PDFにうまく伝える
+  lualatex, %luaLaTeXを使う
+  a5paper,  %A5サイズにする
+  papersize %紙のサイズがデフォルトと違う場合、PDFにうまく伝える
 ]{ltjsbook}
 
 % pdf
@@ -21,8 +21,8 @@
 \usepackage{titlesec}
 \titleformat{\part}
   {\fontsize{24pt}{30pt}\selectfont\filcenter} % 30pt の明朝体（中央寄せ）
-  {\thepart} % 「第1部」などの番号部分
-  {1em} % 番号とタイトルの間隔
+  {\thepart}                                   % 「第1部」などの番号部分
+  {1em}                                        % 番号とタイトルの間隔
   {}
 
 %% タイトル用フォント
@@ -34,7 +34,20 @@
 \usepackage{tikz}
 
 %% 目次
+\usepackage{tocloft}
+% subsection まで出す
 \setcounter{tocdepth}{2}
+% chapter, section のフォント設定を明示的に指定
+\renewcommand{\cftchapfont}{\large\bfseries}
+\renewcommand{\cftsecfont}{\bfseries}
+\renewcommand{\cftsubsecfont}{\small}
+% ページ番号のフォント設定
+\renewcommand{\cftchappagefont}{\large\bfseries}
+\renewcommand{\cftsecpagefont}{\bfseries}
+\renewcommand{\cftsubsecpagefont}{\small}
+% 章番号の後に2emのスペース
+\setlength{\cftchapnumwidth}{5em}
+\renewcommand{\cftchapaftersnum}{\hspace{3em}}
 
 %% 斜線フォント
 \usepackage {cancel}
@@ -42,13 +55,13 @@
 %% 囲み枠
 \usepackage{tcolorbox}
 \tcbuselibrary{breakable} % ページをまたいで分割できるように
-\tcbuselibrary{skins} % さまざまな skin を準備
-\tcbuselibrary{theorems} % 定理環境
+\tcbuselibrary{skins}     % さまざまな skin を準備
+\tcbuselibrary{theorems}  % 定理環境
 
 %% 枠の定義
 \newtcolorbox{summary}{
-sharp corners, % 角を丸くしない
-boxrule=0pt, % ボックスの罫線なし
+sharp corners,          % 角を丸くしない
+boxrule=0pt,            % ボックスの罫線なし
 colback=green!20!white, % ボックスの背景色
 }
 
@@ -77,7 +90,7 @@ title=#1 % タイトルのテキスト
 
 %% 傍点(\bou)・圏点(\kenten)
 \usepackage{luatexja-ruby} % \kenten{}
-\usepackage{lltjext} % \bou{}
+\usepackage{lltjext}       % \bou{}
 
 %% 索引
 \usepackage{makeidx}
