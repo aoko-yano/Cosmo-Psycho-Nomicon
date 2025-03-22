@@ -33,7 +33,10 @@
 \usepackage{graphicx}
 \usepackage{tikz}
 
-% 斜線フォント
+%% 目次
+\setcounter{tocdepth}{2}
+
+%% 斜線フォント
 \usepackage {cancel}
 
 %% 囲み枠
@@ -42,7 +45,7 @@
 \tcbuselibrary{skins} % さまざまな skin を準備
 \tcbuselibrary{theorems} % 定理環境
 
-% 枠の定義
+%% 枠の定義
 \newtcolorbox{summary}{
 sharp corners, % 角を丸くしない
 boxrule=0pt, % ボックスの罫線なし
@@ -60,23 +63,27 @@ fonttitle=\gtfamily\bfseries, % タイトルのフォント
 title=#1 % タイトルのテキスト
 }
 
-% エピグラフ
+%% エピグラフ
 \usepackage{epigraph}
 \setlength{\epigraphwidth}{.6\textwidth}
 
-% 註釈（本文中）
+%% 註釈（本文中）
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
-% 参考文献（末尾）
+%% 参考文献（末尾）
 \usepackage{biblatex} % 参考文献管理用パッケージ
 \addbibresource{references.bib}
+
+%% 傍点(\bou)・圏点(\kenten)
+\usepackage{luatexja-ruby} % \kenten{}
+\usepackage{lltjext} % \bou{}
 
 %% 索引
 \usepackage{makeidx}
 \makeindex
 
-% URL
+%% URL
 \usepackage{hyperref}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}

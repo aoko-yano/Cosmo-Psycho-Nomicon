@@ -16,3 +16,5 @@ rm *.out
 rm *.toc
 rm *.xml
 rm *.blg
+
+mv main.pdf ../../
