@@ -16,5 +16,6 @@ rm *.out
 rm *.toc
 rm *.xml
 rm *.blg
+rm *.ltjruby
 
 mv main.pdf ../../
