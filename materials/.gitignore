@@ -1,3 +1,4 @@
+*.bak
 *.aux
 *.log
 *.bbl
@@ -8,3 +9,5 @@
 *.xml
 *.blg
 *.ltjruby
+*.ilg
+*.ind

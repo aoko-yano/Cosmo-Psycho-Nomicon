@@ -66,14 +66,14 @@ colback=green!20!white, % ボックスの背景色
 }
 
 \newtcolorbox{note}[1]{
-breakable, % ページをまたいでボックスを分割
+breakable,                           % ページをまたいでボックスを分割
 before skip=20pt plus 2pt minus 2pt, % ボックスの前の空き
-after skip=20pt plus 2pt minus 2pt, % ボックスの後の空き
-boxrule=0.4pt, % ボックスの罫線の太さ
-colframe=black!95, % フレームの色
-colback=white!95, % ボックスの背景色
-fonttitle=\gtfamily\bfseries, % タイトルのフォント
-title=#1 % タイトルのテキスト
+after skip=20pt plus 2pt minus 2pt,  % ボックスの後の空き
+boxrule=0.4pt,                       % ボックスの罫線の太さ
+colframe=black!95,                   % フレームの色
+colback=white!95,                    % ボックスの背景色
+fonttitle=\gtfamily\bfseries,        % タイトルのフォント
+title=#1                             % タイトルのテキスト
 }
 
 %% エピグラフ
@@ -85,17 +85,24 @@ title=#1 % タイトルのテキスト
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 %% 参考文献（末尾）
+\usepackage[utf8]{inputenc}
 \usepackage{biblatex} % 参考文献管理用パッケージ
 \addbibresource{references.bib}
+\renewcommand{\bibfont}{\footnotesize}
+\DeclareSortingTemplate[locale=japanese]{}{
+  \sort{
+    \field{author}
+    \field{title}
+  }
+}
 
 %% 傍点(\bou)・圏点(\kenten)
 \usepackage{luatexja-ruby} % \kenten{}
 \usepackage{lltjext}       % \bou{}
 
 %% 索引
-\usepackage{makeidx}
+\usepackage{imakeidx}
 \makeindex
-\renewcommand{\bibfont}{\small}
 
 %% URL
 \usepackage{hyperref}
