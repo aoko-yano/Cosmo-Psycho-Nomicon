@@ -12,9 +12,12 @@ def set_index(target: str, wordlist_file: str):
         f.writelines(lines)
     
     # 単語リストを読み込む
+    words = []
     with open(wordlist_file, "r", encoding="utf-8") as f:
-        words = [line.strip() for line in f if line.strip()]
-    
+        for line in f:
+            cols = line.strip().split(",")
+            words.append({"word_text": cols[0], "yomi": cols[1]})
+
     # LaTeX の特定のコマンドを含む行を判定する正規表現
     command_pattern = re.compile(r"\\(index|part|chapter|section|subsection|paragraph|subparagraph|item|footnote|label|ref)")
     
@@ -24,7 +27,9 @@ def set_index(target: str, wordlist_file: str):
                 f.write(line)  # そのまま出力
             else:
                 for word in words:
-                    line = re.sub(rf'{re.escape(word)}', rf'\\index{{{word}}}', line)
+                    word_text = word["word_text"]
+                    yomi = word["yomi"]
+                    line = re.sub(rf'{re.escape(word_text)}', rf'\\index{{{yomi}@{word_text}}}', line)
                 f.write(line)
 
 if __name__ == "__main__":

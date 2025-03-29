@@ -4,17 +4,8 @@
 cd $(git rev-parse --show-toplevel)
 echo "Current: $(pwd)"
 
-# .md ファイルの差分を取得
-md_files=$(git diff --name-only --diff-filter=AM HEAD | grep '\.md$')
-
-# .md ファイルがなければ終了
-if [ -z "$md_files" ]; then
-    echo "No modified or added .md files."
-    exit 0
-fi
-
 # 各 .md ファイルを .tex に変換
-for file in $md_files; do
+find "materials/md" -type f -name "*.md" | while read -r file; do
     filename=$(basename ${file})
     tex_file="materials/tex/${filename%.md}.tex"
     echo "Converting $file to $tex_file..."
