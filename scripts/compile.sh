@@ -1,6 +1,13 @@
 #!/bin/bash
 
-cd $(dirname ${0})
+# リポジトリのルートディレクトリに移動
+cd $(git rev-parse --show-toplevel)
+
+# 作業ディレクトリに移動
+cd materials/tex
+
+# 作業ディレクトリにいることを確認
+echo "Current: $(pwd)"
 
 lualatex main.tex
 biber main
