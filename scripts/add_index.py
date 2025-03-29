@@ -29,7 +29,7 @@ def set_index(target: str, wordlist_file: str):
                 for word in words:
                     word_text = word["word_text"]
                     yomi = word["yomi"]
-                    line = re.sub(rf'{re.escape(word_text)}', rf'\\index{{{yomi}@{word_text}}}', line)
+                    line = re.sub(rf'{re.escape(word_text)}', rf'\\mbox{{{word_text}}}\\index{{{yomi}@{word_text}}}', line)
                 f.write(line)
 
 if __name__ == "__main__":
